@@ -26,9 +26,7 @@ For an optimal learning experience, I recommend taking the challenge on TryHackM
 
 ### **📋 Challenges & Reports**
 
-- **Challenge 1**: Brief description about the challenge. **[Read the report](https://chat.openai.com/c/challenge_1/report.md)**
-- **Challenge 2**: Brief description about the challenge. **[Read the report](https://chat.openai.com/c/challenge_2/report.md)**
-... (add more as you progress)
+- **Simple CTF**: A beginner level, easy CTF **[Read the report](practice/simple-ctf/simple-ctf.md)**
 
 ### **✍️ Contribution**
 
