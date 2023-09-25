@@ -27,6 +27,7 @@ For an optimal learning experience, I recommend taking the challenge on TryHackM
 ### **📋 Challenges & Reports**
 
 - **Simple CTF**: A beginner level, easy CTF **[Read the report](practice/simple-ctf/simple-ctf.md)**
+- **RootMe CTF**: A beginner level, easy CTF focued on reverse shells and privilege escalation. **[Read the repoort](/practice/rootme-ctf/rootme-ctf.md)**
 
 ### **✍️ Contribution**
 
