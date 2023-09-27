@@ -27,7 +27,8 @@ For an optimal learning experience, I recommend taking the challenge on TryHackM
 ### **📋 Challenges & Reports**
 
 - **Simple CTF**: A beginner level, easy CTF **[Read the report](practice/simple-ctf/simple-ctf.md)**
-- **RootMe CTF**: A beginner level, easy CTF focued on reverse shells and privilege escalation. **[Read the repoort](/practice/rootme-ctf/rootme-ctf.md)**
+- **RootMe CTF**: A beginner level, easy CTF focused on reverse shells and privilege escalation. **[Read the repoort](practice/rootme-ctf/rootme-ctf.md)**
+- **Expose CTF**: A beginner level, easy CTF focused on attacking vulnerable PHP apps, Code Injection, network enumeration, password cracking and escalation of privileges. **[Read The Report](practice/expose-ctf/expose.md)**
 
 ### **✍️ Contribution**
 
